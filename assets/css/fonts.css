@@ -48,5 +48,12 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "Cormorant-Regular";
+  src: url("../../assets/fonts/Cormorant-Regular.eot");
+  src: local("☺"), url("../../assets/fonts/Cormorant-Regular.woff") format("woff"), url("../../assets/fonts/Cormorant-Regular.ttf") format("truetype"), url("../../assets/fonts/Cormorant-Regular.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
 
 /*# sourceMappingURL=fonts.css.map */
