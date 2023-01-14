@@ -91,3 +91,29 @@ colorListActivator.forEach( activator => {
         }
     })
 })
+
+let currentStep = 1;
+const nextStepButton = document.querySelectorAll('.next-step-button');
+let selectedCheckbox = [];
+
+
+nextStepButton.forEach(button => {
+    button.addEventListener('click', () => {
+        currentStep++;
+        if (currentStep === 1){
+            document.querySelector('.step-1').classList.add('active');
+        }else if (currentStep === 2){
+            document.querySelector('.step-1').classList.remove('active');
+            document.querySelector('.step-2').classList.add('active');
+        }else if (currentStep === 3){
+            document.querySelector('.step-2').classList.remove('active');
+            document.querySelector('.step-3').classList.add('active');
+        }
+        let questionList = button.closest('.helper__page').querySelector('.helper__page__question-list');
+        let checkboxes = questionList.querySelectorAll('.checkbox');
+        checkboxes.forEach( checkbox => {
+            checkbox.checked ? selectedCheckbox.push(checkbox.id) : '';
+        })
+    })
+})
+

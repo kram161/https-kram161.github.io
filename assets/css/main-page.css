@@ -89,11 +89,20 @@ p, a {
   width: 100%;
   max-width: unset;
   border: 1px solid #052E4C;
+  transition: all 0.5s ease;
+  background: #ffffff;
 }
 .button p {
   font-size: 13px !important;
   color: #052E4C;
   text-transform: uppercase;
+  transition: all 0.5s ease;
+}
+.button:hover {
+  background: #052E4C;
+}
+.button:hover p {
+  color: #ffffff !important;
 }
 
 body {
@@ -512,12 +521,13 @@ body {
 }
 
 .popular {
+  position: relative;
   height: fit-content;
 }
 .popular__background-large, .popular__background-small {
   position: absolute;
   width: calc(100% - 160px);
-  height: -webkit-fill-available;
+  height: 100%;
   background: #417A82;
 }
 .popular__background-small {
@@ -671,6 +681,7 @@ body {
   padding: 16px 16px 40px 16px;
   max-width: 256px;
   min-height: 533px;
+  height: 100%;
   display: flex !important;
   flex-direction: column;
   box-sizing: border-box;
@@ -826,6 +837,170 @@ body {
 }
 #best-offers .best-offers__slider-slide:hover {
   background: #E3F6F5;
+}
+
+#helper {
+  padding: 131px 0 50px 0;
+}
+#helper .helper {
+  background: #E3F6F5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 56px;
+  overflow: hidden;
+}
+#helper .helper__title {
+  position: relative;
+  display: block;
+  width: fit-content;
+  padding: 0 30px;
+  background: #E3F6F5;
+  z-index: 2;
+}
+#helper .helper__wrapper {
+  width: 100%;
+  border: 1px solid #417A82;
+  margin: -7px 0 0 0;
+  padding: 62px 104px 51px 104px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+#helper .helper__page {
+  position: relative;
+  height: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: -1;
+}
+#helper .helper__page h2 {
+  font-family: "Cormorant-Italic", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+}
+#helper .helper__page__pagination {
+  margin: 20px 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#helper .helper__page__pagination p {
+  position: relative;
+  content: "";
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  background: none;
+  border: 1px solid #417A82;
+  transition: all 0.5s ease;
+}
+#helper .helper__page__pagination p span {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translate(-45%, -50%);
+  font-family: "Cormorant-Italic", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  font-feature-settings: "pnum" on, "lnum" on;
+}
+#helper .helper__page__pagination p.active {
+  background: #417A82;
+}
+#helper .helper__page__pagination p.active span {
+  color: #E3F6F5;
+}
+#helper .helper__page__pagination svg {
+  margin: 0 4px;
+}
+#helper .helper__page__question-list {
+  margin: 50px 0 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+#helper .helper__page__question-list-unit {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+#helper .helper__page__question-list-unit .checkbox {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+#helper .helper__page__question-list-unit .checkbox + label {
+  position: relative;
+  cursor: pointer;
+  font-family: "PTSans-Regular", sans-serif;
+  font-size: 16px;
+  color: #052E4C;
+  display: flex;
+  align-items: center;
+}
+#helper .helper__page__question-list-unit .checkbox + label::before {
+  position: relative;
+  content: "";
+  display: block;
+  width: 14px;
+  height: 14px;
+  background: #ffffff;
+  border: 1px solid #417A82;
+  margin: 0 16px 0 0;
+}
+#helper .helper__page__question-list-unit .checkbox + label::after {
+  position: absolute;
+  content: "";
+  width: 16px;
+  height: 16px;
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='7' viewBox='0 0 10 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 3.20799L3.78733 5.84436L9 0.789673' stroke='%23417A82'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+#helper .helper__page__question-list-unit .checkbox:checked + label::after {
+  opacity: 1;
+}
+#helper .helper__page__question-list-unit:nth-child(n+3) {
+  margin: 20px 0 0 0;
+}
+#helper .helper__page__navigation {
+  margin: 48px auto 0 auto;
+  display: block;
+  width: fit-content;
+}
+#helper .helper__page__navigation-button {
+  padding: 12px 24px;
+  background: #ffffff;
+  cursor: pointer;
+  border: 1px solid #ffffff;
+  transition: all 0.5s ease;
+}
+#helper .helper__page__navigation-button p {
+  text-transform: uppercase;
+  font-size: 13px;
+  color: #052E4C;
+  transition: all 0.5s ease;
+}
+#helper .helper__page__navigation-button:hover {
+  background: #052E4C;
+  border: 1px solid #052E4C;
+}
+#helper .helper__page__navigation-button:hover p {
+  color: #ffffff;
+}
+#helper .helper__page.active {
+  height: 100%;
+  opacity: 1;
+  z-index: 1;
 }
 
 /*# sourceMappingURL=main-page.css.map */

@@ -43,10 +43,19 @@ p,a{
   width: 100%;
   max-width: unset;
   border: 1px solid $dark-blue;
+  transition: $animation;
+  background: $white;
   p{
     font-size: 13px !important;
     color: $dark-blue;
     text-transform: uppercase;
+    transition: $animation;
+  }
+  &:hover{
+    background: $dark-blue;
+    p{
+      color: $white !important;
+    }
   }
 }
 
@@ -485,11 +494,12 @@ body{
 }
 
 .popular{
+  position: relative;
   height: fit-content;
   &__background-large,&__background-small{
     position: absolute;
     width: calc(100% - 160px);
-    height: -webkit-fill-available;
+    height: 100%;
     background: $dark-green;
   }
   &__background-small{
@@ -647,6 +657,7 @@ body{
         padding: 16px 16px 40px 16px;
         max-width: 256px;
         min-height: 533px;
+        height: 100%;
         display: flex !important;
         flex-direction: column;
         box-sizing: border-box;
@@ -806,6 +817,170 @@ body{
         &:hover{
           background: $light-green;
         }
+      }
+    }
+  }
+}
+
+#helper{
+  padding: 131px 0 50px 0;
+  .helper{
+    background: $light-green;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 56px;
+    overflow: hidden;
+    &__title{
+      position: relative;
+      display: block;
+      width: fit-content;
+      padding: 0 30px;
+      background: $light-green;
+      z-index: 2;
+    }
+    &__wrapper{
+      width: 100%;
+      border: 1px solid $dark-green;
+      margin: -7px 0 0 0;
+      padding: 62px 104px 51px 104px;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 1;
+    }
+    &__page{
+      position: relative;
+      height: 0;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      z-index: -1;
+      h2{
+        font-family: 'Cormorant-Italic',sans-serif;
+        font-size: 32px;
+        font-weight: 700;
+        display: block;
+        width: fit-content;
+        margin: 0 auto;
+      }
+      &__pagination{
+        margin: 20px 0 0 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        p{
+          position: relative;
+          content: '';
+          width: 19px;
+          height: 19px;
+          border-radius: 50%;
+          background: none;
+          border: 1px solid $dark-green;
+          transition: $animation;
+          span{
+            position: absolute;
+            left: 50%;
+            top: 45%;
+            transform: translate(-45%,-50%);
+            font-family: 'Cormorant-Italic',sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            font-feature-settings: 'pnum' on, 'lnum' on;
+          }
+          &.active{
+            background: $dark-green;
+            span{
+              color: $light-green;
+            }
+          }
+        }
+        svg{
+          margin: 0 4px;
+        }
+      }
+      &__question-list{
+        margin: 50px 0 0 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        &-unit{
+          width: 50%;
+          display: flex;
+          align-items: center;
+          .checkbox{
+            position: absolute;
+            opacity: 0;
+            z-index: -1;
+          }
+          .checkbox+label{
+            position: relative;
+            cursor: pointer;
+            font-family: 'PTSans-Regular',sans-serif;
+            font-size: 16px;
+            color: $dark-blue;
+            display: flex;
+            align-items: center;
+          }
+          .checkbox+label::before{
+            position: relative;
+            content: '';
+            display: block;
+            width: 14px;
+            height: 14px;
+            background: $white;
+            border: 1px solid $dark-green;
+            margin: 0 16px 0 0;
+          }
+          .checkbox+label::after{
+            position: absolute;
+            content: '';
+            width: 16px;
+            height: 16px;
+            background-image: url("data:image/svg+xml,%3Csvg width='10' height='7' viewBox='0 0 10 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 3.20799L3.78733 5.84436L9 0.789673' stroke='%23417A82'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: $animation;
+            opacity: 0;
+          }
+          .checkbox:checked+label::after{
+            opacity: 1;
+          }
+          &:nth-child(n+3){
+            margin: 20px 0 0 0;
+          }
+        }
+      }
+      &__navigation{
+        margin: 48px auto 0 auto;
+        display: block;
+        width: fit-content;
+        &-button{
+          padding: 12px 24px;
+          background: $white;
+          cursor: pointer;
+          border: 1px solid $white;
+          transition: $animation;
+          p{
+            text-transform: uppercase;
+            font-size: 13px;
+            color: $dark-blue;
+            transition: $animation;
+          }
+          &:hover{
+            background: $dark-blue;
+            border: 1px solid $dark-blue;
+            p{
+             color: $white;
+            }
+          }
+        }
+      }
+      &.active{
+        height: 100%;
+        opacity: 1;
+        z-index: 1;
       }
     }
   }
