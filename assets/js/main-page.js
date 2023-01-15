@@ -59,7 +59,15 @@ sliders.forEach( slider => {
             slidesToShow: 4,
             slidesToScroll: 1,
             prevArrow: $('.' + sliderName + '__slider-navigation-prev'),
-            nextArrow: $('.' + sliderName + '__slider-navigation-next')
+            nextArrow: $('.' + sliderName + '__slider-navigation-next'),
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        variableWidth: true
+                    },
+                },
+            ]
         }).on('beforeChange', function (event, slick, currentSlide, nextSlide) {
             $('.' + sliderName + '__slider-navigation__counter-current').text(nextSlide + 1);
         });
