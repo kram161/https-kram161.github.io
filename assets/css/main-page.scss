@@ -1379,6 +1379,7 @@ body {
 
 @media screen and (max-width: 1200px){
   #best-offers {
+    padding: 90px 0 0 0;
     .best-offers {
       &__slider {
         .slick-list {
@@ -1394,6 +1395,7 @@ body {
 }
 @media screen and (max-width: 768px){
   #best-offers {
+    padding: 48px 0 0 0;
     .container{
       padding: 0 0 0 15px;
     }
@@ -1428,6 +1430,7 @@ body {
       padding: 0 30px;
       background: $light-green;
       z-index: 2;
+      text-transform: uppercase;
     }
 
     &__wrapper {
@@ -1445,6 +1448,7 @@ body {
       height: 0;
       opacity: 0;
       transition: opacity 0.5s ease;
+      max-height: 1200px;
       z-index: -1;
 
       h2 {
@@ -1593,6 +1597,68 @@ body {
         height: 100%;
         opacity: 1;
         z-index: 1;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 992px){
+
+  #helper {
+    padding: 90px 0 50px 0;
+    .helper {
+      padding: 30px;
+      &__wrapper {
+        padding: 45px;
+      }
+      &__page {
+        &__question-list {
+          &-unit {
+            .checkbox + label::before {
+              flex-shrink: 0;
+            }
+          }
+        }
+
+      }
+    }
+  }
+
+}
+
+@media screen and (max-width: 768px){
+  #helper {
+    padding: 48px 0 50px 0;
+    .helper {
+      padding: 48px 20px;
+      &__title{
+        font-size: 13px;
+        text-align: center;
+        max-width: 215px;
+        padding: 0;
+      }
+      &__wrapper {
+        padding: 40px 24px;
+        margin: -15px 0 0 0;
+      }
+      &__page{
+        h2{
+          display: none;
+        }
+        &__pagination{
+          margin: 0;
+          p{
+            span{
+              top: 48%;
+            }
+          }
+        }
+        &__question-list{
+          &-unit{
+            width: 100%;
+            margin: 20px 0 0 0;
+          }
+        }
       }
     }
   }

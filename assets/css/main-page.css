@@ -1152,6 +1152,9 @@ body {
 }
 
 @media screen and (max-width: 1200px) {
+  #best-offers {
+    padding: 90px 0 0 0;
+  }
   #best-offers .best-offers__slider .slick-list {
     margin: 0 -8px;
   }
@@ -1161,6 +1164,9 @@ body {
   }
 }
 @media screen and (max-width: 768px) {
+  #best-offers {
+    padding: 48px 0 0 0;
+  }
   #best-offers .container {
     padding: 0 0 0 15px;
   }
@@ -1189,6 +1195,7 @@ body {
   padding: 0 30px;
   background: #E3F6F5;
   z-index: 2;
+  text-transform: uppercase;
 }
 #helper .helper__wrapper {
   width: 100%;
@@ -1204,6 +1211,7 @@ body {
   height: 0;
   opacity: 0;
   transition: opacity 0.5s ease;
+  max-height: 1200px;
   z-index: -1;
 }
 #helper .helper__page h2 {
@@ -1332,6 +1340,52 @@ body {
   height: 100%;
   opacity: 1;
   z-index: 1;
+}
+
+@media screen and (max-width: 992px) {
+  #helper {
+    padding: 90px 0 50px 0;
+  }
+  #helper .helper {
+    padding: 30px;
+  }
+  #helper .helper__wrapper {
+    padding: 45px;
+  }
+  #helper .helper__page__question-list-unit .checkbox + label::before {
+    flex-shrink: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  #helper {
+    padding: 48px 0 50px 0;
+  }
+  #helper .helper {
+    padding: 48px 20px;
+  }
+  #helper .helper__title {
+    font-size: 13px;
+    text-align: center;
+    max-width: 215px;
+    padding: 0;
+  }
+  #helper .helper__wrapper {
+    padding: 40px 24px;
+    margin: -15px 0 0 0;
+  }
+  #helper .helper__page h2 {
+    display: none;
+  }
+  #helper .helper__page__pagination {
+    margin: 0;
+  }
+  #helper .helper__page__pagination p span {
+    top: 48%;
+  }
+  #helper .helper__page__question-list-unit {
+    width: 100%;
+    margin: 20px 0 0 0;
+  }
 }
 
 /*# sourceMappingURL=main-page.css.map */
