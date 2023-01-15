@@ -72,6 +72,11 @@ h2 b {
   margin: 0 0 0 -10px;
 }
 
+@media screen and (max-width: 768px) {
+  h2 b {
+    margin: 0 0 0 -5px;
+  }
+}
 p, a {
   font-family: "PTSans-Regular", sans-serif;
   color: #417A82;
@@ -113,6 +118,7 @@ body {
   width: 100%;
   max-width: 1120px;
   margin: 0 auto;
+  padding: 0 15px;
 }
 
 .header {
@@ -400,6 +406,11 @@ body {
 .header__navbar.active .header__navbar__list-navigation a {
   opacity: 1;
 }
+.header__burger {
+  position: absolute;
+  z-index: -5;
+  opacity: 0;
+}
 .header__logo {
   display: none;
 }
@@ -429,17 +440,153 @@ body {
   border-radius: 50%;
   background: #ffffff;
 }
+.header__navigation__cart-count {
+  position: absolute;
+  opacity: 0;
+}
 .header__navigation__cart img {
   position: absolute;
   left: 8.54px;
   bottom: 11.5px;
 }
 
+@media screen and (max-width: 992px) {
+  .header__navigation {
+    top: 36px;
+    right: 36px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .header {
+    position: fixed;
+    z-index: 4;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    padding: 20px;
+    box-sizing: border-box;
+    height: 92px;
+  }
+  .header__navbar {
+    position: absolute;
+    top: 92px;
+    left: 0;
+    transition: all 0.5s ease;
+  }
+  .header__navbar__wrapper {
+    width: 100vw;
+    height: 100vh;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+  }
+  .header__navbar__list {
+    left: -224px;
+    height: calc(100vh - 92px);
+  }
+  .header__navbar__list-logo {
+    display: none;
+  }
+  .header__navbar__list-feedback {
+    height: auto !important;
+    padding: 0 0 20px 0;
+  }
+  .header__navbar__list-burger {
+    display: none;
+  }
+  .header__navbar.active .header__navbar__list {
+    left: 0;
+  }
+  .header__navbar.active .header__navbar__wrapper {
+    height: 100vh;
+    pointer-events: unset;
+  }
+  .header__burger {
+    position: relative;
+    opacity: 1;
+    z-index: 4;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 24px;
+    height: 12px;
+    cursor: pointer;
+    padding: 5px 5px 5px 0;
+  }
+  .header__burger span {
+    position: relative;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background: #417A82;
+    pointer-events: none;
+    transition: all 0.5s ease;
+  }
+  .header__burger.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+  }
+  .header__burger.active span:nth-child(2) {
+    margin: 0 0 0 -15px;
+    opacity: 0;
+  }
+  .header__burger.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-7.5px);
+  }
+  .header__logo {
+    display: block;
+  }
+  .header__navigation {
+    position: relative;
+    top: unset;
+    right: unset;
+  }
+  .header__navigation__button {
+    display: none;
+  }
+  .header__navigation__cart {
+    position: relative;
+    height: unset;
+    width: unset;
+    background: unset;
+    border-radius: unset;
+  }
+  .header__navigation__cart-count {
+    background: #B84C74;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    opacity: 1;
+    top: -5px;
+    right: -5px;
+  }
+  .header__navigation__cart-count span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-size: 12px;
+  }
+  .header__navigation__cart img {
+    position: relative;
+    left: unset;
+    bottom: unset;
+    display: block;
+    width: 28px;
+    height: 22px;
+  }
+}
 .main-content {
   position: relative;
   margin: 0 0 0 72px;
 }
 
+@media screen and (max-width: 768px) {
+  .main-content {
+    margin: 0;
+  }
+}
 .pre-header {
   position: relative;
 }
@@ -455,7 +602,7 @@ body {
   position: relative;
   max-width: 1120px;
   z-index: 2;
-  padding: 168px 0 0 0;
+  padding: 168px 15px 0 15px;
   margin: 0 auto;
 }
 .pre-header__slider-slide__information h2 {
@@ -504,6 +651,13 @@ body {
   bottom: 53px;
   display: flex;
   align-items: center;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+.pre-header__slider-navigation-dots {
+  position: absolute;
+  z-index: -999;
+  opacity: 0;
 }
 .pre-header__slider-navigation-next, .pre-header__slider-navigation-prev {
   height: 24px;
@@ -520,6 +674,86 @@ body {
   color: #052E4C;
 }
 
+@media screen and (max-width: 1200px) {
+  .pre-header__slider-slide__information {
+    max-width: 920px;
+  }
+  .pre-header__slider-navigation {
+    max-width: 920px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .pre-header__slider-slide {
+    min-height: 600px;
+  }
+  .pre-header__slider-slide__information {
+    padding: 100px 15px 0 15px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .pre-header__slider-slide {
+    height: 508px;
+  }
+  .pre-header__slider-slide__information {
+    max-width: unset;
+    z-index: 2;
+    padding: 140px 20px 0 20px;
+  }
+  .pre-header__slider-slide__information h2 {
+    font-size: 42px;
+  }
+  .pre-header__slider-slide__information p {
+    max-width: 336px;
+    padding: 25px 0 0 0;
+  }
+  .pre-header__slider-slide__information a {
+    margin: 35px 0 0 0;
+  }
+  .pre-header__slider-slide picture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+  }
+  .pre-header__slider-slide picture img {
+    width: 100%;
+    height: 100%;
+  }
+  .pre-header__slider-navigation {
+    padding: 0 20px;
+  }
+  .pre-header__slider-navigation-dots {
+    position: unset;
+    z-index: unset;
+    opacity: unset;
+  }
+  .pre-header__slider-navigation-dots .slick-dots {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    list-style: none;
+  }
+  .pre-header__slider-navigation-dots .slick-dots li {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    margin: 0 8px 0 0;
+    text-indent: -9999px;
+    background: #F2F6F7;
+    cursor: pointer;
+    transition: all 0.5s ease;
+  }
+  .pre-header__slider-navigation-dots .slick-dots li.slick-active {
+    background: #B84C74;
+  }
+  .pre-header__slider-navigation-next, .pre-header__slider-navigation-prev, .pre-header__slider-navigation__counter {
+    position: absolute;
+    z-index: -999;
+    opacity: 0;
+  }
+}
 .popular {
   position: relative;
   height: fit-content;

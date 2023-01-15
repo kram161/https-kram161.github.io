@@ -1,6 +1,8 @@
 const navbar = document.querySelector('.header__navbar')
 const navbarWrapper = document.querySelector('.header__navbar__wrapper');
 const navbarList = document.querySelector('.header__navbar__list');
+const headerBurger = document.querySelector('.header__burger');
+const header = document.querySelector('.header');
 
 navbarList.addEventListener('click', () => {
     navbar.classList.add('active');
@@ -8,15 +10,24 @@ navbarList.addEventListener('click', () => {
 
 navbarWrapper.addEventListener('click', () => {
     navbar.classList.remove('active');
+    headerBurger.classList.remove('active');
+})
+
+headerBurger.addEventListener('click', () => {
+    headerBurger.classList.toggle('active');
+    navbar.classList.toggle('active');
 })
 
 document.addEventListener('click', (e) => {
     const target = e.target;
     const itsNavbarList = target === navbarList || navbarList.contains(target);
-    !itsNavbarList ? navbar.classList.remove('active') : '';
+    const itsHeaderBurger = target === headerBurger || headerBurger.contains(target)
+    const itsHeader = target === header;
+    if(!itsNavbarList && !itsHeaderBurger && !itsHeader){
+        navbar.classList.remove('active');
+        headerBurger.classList.remove('active');
+    }
 })
-
-
 
 const sliders = document.querySelectorAll('.slider');
 
@@ -30,6 +41,8 @@ sliders.forEach( slider => {
         }).slick({
             infinite: true,
             arrows: true,
+            dots: true,
+            appendDots: $('.' + sliderName + '__slider-navigation-dots'),
             prevArrow: $('.' + sliderName + '__slider-navigation-prev'),
             nextArrow: $('.' + sliderName + '__slider-navigation-next')
         }).on('beforeChange', function (event, slick, currentSlide, nextSlide) {
@@ -116,4 +129,7 @@ nextStepButton.forEach(button => {
         })
     })
 })
+
+
+
 
